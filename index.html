@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Danish Saleem | Terminal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">/home/danish</p>
+          <h1>Danish Saleem</h1>
+          <p class="tagline">AI/Software Engineer building with agentic dev tools, carefully and intentionally.</p>
+        </div>
+        <div class="status">
+          <span class="dot"></span>
+          <div>
+            <p class="status-title">Terminal Online</p>
+            <p class="status-sub">Type `help` or click a command</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="terminal-title">portfolio.sh</p>
+            <div class="terminal-actions">
+              <button class="ghost" data-cmd="help">help</button>
+              <button class="ghost" data-cmd="ls">ls</button>
+              <button class="ghost" data-cmd="projects">projects</button>
+              <button class="ghost" data-cmd="tools">tools</button>
+            </div>
+          </div>
+
+          <div id="terminalOutput" class="terminal-output" role="log" aria-live="polite"></div>
+
+          <form id="terminalForm" class="terminal-input" autocomplete="off">
+            <span class="prompt">danish@portfolio:~$</span>
+            <div class="input-wrap">
+              <span id="autocompleteHint" class="autocomplete-hint" aria-hidden="true"></span>
+              <input
+                id="commandInput"
+                name="command"
+                type="text"
+                spellcheck="false"
+                autocomplete="off"
+                placeholder="help"
+                aria-label="Terminal command"
+              />
+            </div>
+          </form>
+
+          <div class="terminal-footer">
+            <p>Popular: <button class="chip" data-cmd="about">about</button> <button class="chip" data-cmd="cat projects.json">cat projects.json</button> <button class="chip" data-cmd="cat tools.md">cat tools.md</button> <button class="chip" data-cmd="contact">contact</button> <button class="chip" data-cmd="clear">clear</button></p>
+          </div>
+        </div>
+
+        <aside class="info-card">
+          <div class="info-tabs">
+            <button class="tab active" data-panel="about">About</button>
+            <button class="tab" data-panel="projects">Projects</button>
+            <button class="tab" data-panel="tools">Tools</button>
+            <button class="tab" data-panel="contact">Contact</button>
+          </div>
+
+          <div class="info-panels">
+            <section class="panel active" id="panel-about">
+              <h2>About</h2>
+              <p id="aboutLead"></p>
+              <ul id="aboutHighlights" class="list"></ul>
+              <div class="file-hint">
+                <p>Also available via terminal:</p>
+                <code>cat about.txt</code>
+              </div>
+            </section>
+
+            <section class="panel" id="panel-projects">
+              <h2>Projects</h2>
+              <div id="projectsGrid" class="cards"></div>
+              <div class="file-hint">
+                <p>Also available via terminal:</p>
+                <code>cat projects.json</code>
+              </div>
+            </section>
+
+            <section class="panel" id="panel-tools">
+              <h2>Agentic Toolkit</h2>
+              <p id="toolsLead"></p>
+              <ul id="toolsList" class="list"></ul>
+              <div class="file-hint">
+                <p>Also available via terminal:</p>
+                <code>cat tools.md</code>
+              </div>
+            </section>
+
+            <section class="panel" id="panel-contact">
+              <h2>Contact</h2>
+              <div id="contactCard" class="contact"></div>
+              <div class="file-hint">
+                <p>Also available via terminal:</p>
+                <code>cat contact.vcf</code>
+              </div>
+            </section>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
