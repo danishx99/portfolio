@@ -79,6 +79,11 @@ const commands = {
     description: "Quick bio + highlights",
     run: () => aboutOutput(),
   },
+  whoami: {
+    description: "Personal snapshot",
+    run: () =>
+      "Danish Saleem — AI/Software Engineer.\nStatus: Placeholder profile (add a short bio + current focus + location).\nType 'about' for full details.",
+  },
   projects: {
     description: "Recent projects",
     run: () => projectsOutput(),
@@ -118,6 +123,7 @@ const output = document.getElementById("terminalOutput");
 const form = document.getElementById("terminalForm");
 const input = document.getElementById("commandInput");
 const hint = document.getElementById("autocompleteHint");
+const terminalCard = document.querySelector(".terminal-card");
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 
@@ -342,6 +348,10 @@ document.querySelectorAll("[data-cmd]").forEach((button) => {
     input.value = "";
     setHint("");
   });
+});
+
+terminalCard.addEventListener("click", () => {
+  input.focus();
 });
 
 tabs.forEach((tab) => {
