@@ -7,7 +7,7 @@ const state = {
 const data = {
   name: "Danish Saleem",
   role: "AI/Software Engineer",
-  tagline: "AI/Software Engineer building with agentic dev tools, carefully and intentionally.",
+  tagline: "Software engineer doing AI work, AI engineer doing software work.",
   aboutLead:
     "AI/Software Engineer and recent Computer Science graduate from the University of the Witwatersrand. I design AI-powered solutions with a focus on RAG systems, LLMs, and prompt engineering, while delivering user-centric applications.",
   highlights: [
@@ -17,6 +17,15 @@ const data = {
   ],
   toolsLead:
     "Agentic tools are part of the craft. I keep them curated, controlled, and documented.",
+  work: [
+    {
+      company: "Supertube",
+      role: "AI Engineer",
+      dates: "Jan 20205 – Present",
+      description:
+        "Primarily responsible for technical implementations of custom products. Build RAG-powered assistants integrated into services like MS Teams and WhatsApp, plus comprehensive web solutions. Own delivery from prototype through production.",
+    },
+  ],
   tools: [
     "Codex CLI for scoped, auditable automation",
     "LLM-assisted refactors with safety rails",
@@ -60,6 +69,7 @@ const data = {
     "about.txt",
     "projects.json",
     "tools.md",
+    "work.md",
     "contact.vcf",
     "resume.pdf",
     "blog.md",
@@ -92,6 +102,10 @@ const commands = {
     description: "Agentic toolkit",
     run: () => toolsOutput(),
   },
+  work: {
+    description: "Work experience",
+    run: () => workOutput(),
+  },
   contact: {
     description: "Contact details",
     run: () => contactOutput(),
@@ -114,6 +128,7 @@ const commandAliases = {
   "cat about.txt": "about",
   "cat projects.json": "projects",
   "cat tools.md": "tools",
+  "cat work.md": "work",
   "cat contact.vcf": "contact",
   "cat resume.pdf": "resume",
   "cat blog.md": "blog",
@@ -132,6 +147,7 @@ const aboutHighlights = document.getElementById("aboutHighlights");
 const projectsGrid = document.getElementById("projectsGrid");
 const toolsLead = document.getElementById("toolsLead");
 const toolsList = document.getElementById("toolsList");
+const workList = document.getElementById("workList");
 const contactCard = document.getElementById("contactCard");
 
 function renderSidebar() {
@@ -158,6 +174,18 @@ function renderSidebar() {
 
   toolsLead.textContent = data.toolsLead;
   toolsList.innerHTML = data.tools.map((item) => `<li>${item}</li>`).join("");
+
+  workList.innerHTML = data.work
+    .map(
+      (item) => `
+      <article class="card">
+        <h3>${item.company}</h3>
+        <p>${item.role} · ${item.dates}</p>
+        <p>${item.description}</p>
+      </article>
+    `
+    )
+    .join("");
 
   contactCard.innerHTML = `
     <div><strong>Email</strong><br><a href="mailto:${data.contact.email}">${data.contact.email}</a></div>
@@ -229,6 +257,15 @@ function toolsOutput() {
   return `${data.toolsLead}\n\n${list}`;
 }
 
+function workOutput() {
+  return data.work
+    .map(
+      (item) =>
+        `${item.company} — ${item.role} (${item.dates})\n${item.description}`
+    )
+    .join("\n\n");
+}
+
 function contactOutput() {
   return `Email: ${data.contact.email}\nWebsite: ${data.contact.website}\nLinkedIn: ${data.contact.linkedin}\nGitHub: ${data.contact.github}\nLocation: ${data.contact.location}`;
 }
@@ -251,7 +288,7 @@ function runCommand(raw) {
   appendLine(command, response);
   setHint("");
 
-  if (["about", "projects", "tools", "contact"].includes(base)) {
+  if (["about", "projects", "tools", "work", "contact"].includes(base)) {
     setActivePanel(base);
   }
 }

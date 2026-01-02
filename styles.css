@@ -8,7 +8,8 @@
   --terminal-bg: #0c0d0b;
   --terminal-ink: #f1f6ee;
   --terminal-muted: #98a095;
-  --accent: #66f5a6;
+  --accent: #f4b04f;
+  --status-green: #66f5a6;
   --chip: #dcd7cc;
   --shadow: rgba(0, 0, 0, 0.12);
 }
@@ -88,7 +89,7 @@ h1 {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--status-green);
   box-shadow: 0 0 14px rgba(102, 245, 166, 0.8);
 }
 
@@ -300,7 +301,7 @@ button {
 
 .info-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   border-bottom: 2px solid var(--border);
 }
 
@@ -321,10 +322,11 @@ button {
 }
 
 .info-panels {
-  padding: 22px;
+  padding: 22px 12px 22px 22px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .panel {
@@ -333,6 +335,29 @@ button {
 
 .panel.active {
   display: block;
+  height: 100%;
+  overflow-y: auto;
+  margin-right: -12px;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 15, 0.2) transparent;
+}
+
+.panel.active::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel.active::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel.active::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 15, 0.2);
+  border-radius: 999px;
+}
+
+.panel.active::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 15, 0.35);
 }
 
 .panel h2 {
@@ -425,7 +450,7 @@ button {
   }
 
   .info-tabs {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .topbar {

@@ -19,13 +19,13 @@
         <div>
           <p class="eyebrow">/home/danish</p>
           <h1>Danish Saleem</h1>
-          <p class="tagline">AI/Software Engineer building with agentic dev tools, carefully and intentionally.</p>
+          <p class="tagline">Software engineer doing AI work, AI engineer doing software work.</p>
         </div>
         <div class="status">
           <span class="dot"></span>
           <div>
             <p class="status-title">Terminal Online</p>
-            <p class="status-sub">Type `help` or click a command</p>
+            <p class="status-sub">Type `help` to get started</p>
           </div>
         </div>
       </header>
@@ -37,12 +37,6 @@
               <span></span><span></span><span></span>
             </div>
             <p class="terminal-title">portfolio.sh</p>
-            <div class="terminal-actions">
-              <button class="ghost" data-cmd="help">help</button>
-              <button class="ghost" data-cmd="ls">ls</button>
-              <button class="ghost" data-cmd="projects">projects</button>
-              <button class="ghost" data-cmd="tools">tools</button>
-            </div>
           </div>
 
           <div id="terminalOutput" class="terminal-output" role="log" aria-live="polite"></div>
@@ -63,9 +57,6 @@
             </div>
           </form>
 
-          <div class="terminal-footer">
-            <p>Popular: <button class="chip" data-cmd="whoami">whoami</button> <button class="chip" data-cmd="about">about</button> <button class="chip" data-cmd="cat projects.json">cat projects.json</button> <button class="chip" data-cmd="cat tools.md">cat tools.md</button> <button class="chip" data-cmd="contact">contact</button> <button class="chip" data-cmd="clear">clear</button></p>
-          </div>
         </div>
 
         <aside class="info-card">
@@ -73,6 +64,7 @@
             <button class="tab active" data-panel="about">About</button>
             <button class="tab" data-panel="projects">Projects</button>
             <button class="tab" data-panel="tools">Tools</button>
+            <button class="tab" data-panel="work">Work</button>
             <button class="tab" data-panel="contact">Contact</button>
           </div>
 
@@ -103,6 +95,15 @@
               <div class="file-hint">
                 <p>Also available via terminal:</p>
                 <code>cat tools.md</code>
+              </div>
+            </section>
+
+            <section class="panel" id="panel-work">
+              <h2>Work Experience</h2>
+              <div id="workList" class="cards"></div>
+              <div class="file-hint">
+                <p>Also available via terminal:</p>
+                <code>cat work.md</code>
               </div>
             </section>
 
