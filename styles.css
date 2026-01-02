@@ -10,6 +10,7 @@
   --terminal-muted: #98a095;
   --accent: #f4b04f;
   --status-green: #66f5a6;
+  --terminal-link: #4b83d1;
   --chip: #dcd7cc;
   --shadow: rgba(0, 0, 0, 0.12);
 }
@@ -220,6 +221,11 @@ button {
 
 .terminal-output .muted {
   color: var(--terminal-muted);
+}
+
+.terminal-output a {
+  color: var(--terminal-link);
+  text-decoration: underline;
 }
 
 .terminal-input {

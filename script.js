@@ -220,14 +220,22 @@ function appendLine(command, text) {
     return;
   }
 
+  const formattedText = linkify(text);
   const wrapper = document.createElement("div");
   wrapper.className = "line";
   wrapper.innerHTML = `
     <div class="cmd">$ ${command}</div>
-    <div>${text}</div>
+    <div>${formattedText}</div>
   `;
   output.appendChild(wrapper);
   output.scrollTop = output.scrollHeight;
+}
+
+function linkify(text) {
+  const urlPattern = /(https?:\/\/[^\s)]+)/g;
+  return text.replace(urlPattern, (url) => {
+    return `<a href="${url}" target="_blank" rel="noreferrer">${url}</a>`;
+  });
 }
 
 function helpOutput() {
