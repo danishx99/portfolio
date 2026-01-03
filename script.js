@@ -21,17 +21,34 @@ const data = {
     {
       company: "Supertube",
       role: "AI Engineer",
-      dates: "Jan 20205 – Present",
+      dates: "Jan 2025 – Present",
       description:
-        "Primarily responsible for technical implementations of custom products. Build RAG-powered assistants integrated into services like MS Teams and WhatsApp, plus comprehensive web solutions. Own delivery from prototype through production.",
+        "Primarily responsible for all technical implementations of custom products. From developing and building RAG-powered assistants integrated into services like MS Teams and WhatsApp to building comprehensive web solutions, I ensure execution from prototype to production.",
     },
   ],
-  tools: [
-    "Codex CLI for scoped, auditable automation",
-    "LLM-assisted refactors with safety rails",
-    "Prompt + eval loops for structured iteration",
-    "Local-first workflows with versioned outputs",
-  ],
+  tools: {
+    "AI / LLM Workflow": [
+      "LangChain, LlamaIndex, Haystack",
+      "Hugging Face, OpenWebUI",
+      "RAG systems, LLMs, prompt engineering",
+      "OpenAI API + SDK",
+    ],
+    Web: [
+      "React, Next.js, Node.js, Express.js",
+      "TailwindCSS, Jest",
+      "HTML/CSS, JavaScript, TypeScript",
+    ],
+    "Dev Tooling": [
+      "Git, Docker",
+      "PostgreSQL, MongoDB",
+      "Pinecone, ChromaDB, Qdrant",
+    ],
+    "Delivery / Ops": [
+      "Microsoft Azure, AWS, GCP",
+      "DigitalOcean, Cloudflare",
+      "CI/CD, TDD, Agile (Scrum)",
+    ],
+  },
   contact: {
     email: "saleemdf99@gmail.com",
     website: "https://www.danishsaleem.dev",
@@ -139,6 +156,8 @@ const form = document.getElementById("terminalForm");
 const input = document.getElementById("commandInput");
 const hint = document.getElementById("autocompleteHint");
 const terminalCard = document.querySelector(".terminal-card");
+const fullscreenToggle = document.querySelector(".fullscreen-toggle");
+const autocompleteAccept = document.querySelector(".autocomplete-accept");
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 
@@ -146,7 +165,7 @@ const aboutLead = document.getElementById("aboutLead");
 const aboutHighlights = document.getElementById("aboutHighlights");
 const projectsGrid = document.getElementById("projectsGrid");
 const toolsLead = document.getElementById("toolsLead");
-const toolsList = document.getElementById("toolsList");
+const toolsSections = document.getElementById("toolsSections");
 const workList = document.getElementById("workList");
 const contactCard = document.getElementById("contactCard");
 
@@ -173,7 +192,18 @@ function renderSidebar() {
     .join("");
 
   toolsLead.textContent = data.toolsLead;
-  toolsList.innerHTML = data.tools.map((item) => `<li>${item}</li>`).join("");
+  toolsSections.innerHTML = Object.entries(data.tools)
+    .map(
+      ([title, items]) => `
+      <div class="tool-section">
+        <h3>${title}</h3>
+        <ul>
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      </div>
+    `
+    )
+    .join("");
 
   workList.innerHTML = data.work
     .map(
@@ -205,6 +235,32 @@ function setHint(value) {
   hint.textContent = value || "";
 }
 
+function setFullscreenState(isOpen) {
+  terminalCard.classList.toggle("fullscreen", isOpen);
+  document.body.classList.toggle("fullscreen-open", isOpen);
+  if (fullscreenToggle) {
+    fullscreenToggle.setAttribute("aria-pressed", String(isOpen));
+    fullscreenToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Exit full screen terminal" : "Enter full screen terminal"
+    );
+    fullscreenToggle.classList.toggle("is-active", isOpen);
+  }
+}
+
+if (fullscreenToggle) {
+  fullscreenToggle.addEventListener("click", () => {
+    const isOpen = terminalCard.classList.contains("fullscreen");
+    setFullscreenState(!isOpen);
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (!terminalCard.classList.contains("fullscreen")) return;
+  setFullscreenState(false);
+});
+
 function getSuggestion(value) {
   const trimmed = value.trim();
   if (!trimmed) return "";
@@ -212,6 +268,23 @@ function getSuggestion(value) {
     cmd.toLowerCase().startsWith(trimmed.toLowerCase())
   );
   return match || "";
+}
+
+function acceptAutocomplete() {
+  const suggestion = getSuggestion(input.value);
+  if (!suggestion) return;
+  if (!suggestion.toLowerCase().startsWith(input.value.toLowerCase())) return;
+  input.value = suggestion;
+  setHint("");
+  input.focus();
+}
+
+function updateAutocompleteButton() {
+  if (!autocompleteAccept) return;
+  const hasTyped = input.value.trim().length > 0;
+  const suggestion = getSuggestion(input.value);
+  const isVisible = hasTyped && suggestion;
+  autocompleteAccept.classList.toggle("is-visible", Boolean(isVisible));
 }
 
 function appendLine(command, text) {
@@ -243,7 +316,7 @@ function helpOutput() {
     .map(([cmd, value]) => `${cmd.padEnd(10, " ")} — ${value.description}`)
     .join("\n");
 
-  return `Available commands:\n${entries}\n\nUse: cat about.txt | cat projects.json | cat tools.md | cat contact.vcf`;
+  return `Available commands:\n${entries}\n\nUse: cat about.txt | cat projects.json | cat tools.md | cat work.md | cat contact.vcf`;
 }
 
 function aboutOutput() {
@@ -261,8 +334,10 @@ function projectsOutput() {
 }
 
 function toolsOutput() {
-  const list = data.tools.map((item) => `• ${item}`).join("\n");
-  return `${data.toolsLead}\n\n${list}`;
+  const sections = Object.entries(data.tools)
+    .map(([title, items]) => `${title}\n${items.map((item) => `- ${item}`).join("\n")}`)
+    .join("\n\n");
+  return `${data.toolsLead}\n\n${sections}`;
 }
 
 function workOutput() {
@@ -352,6 +427,13 @@ form.addEventListener("submit", (event) => {
 });
 
 input.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    input.value = "";
+    setHint("");
+    return;
+  }
+
   if (event.key === "ArrowUp" || event.key === "ArrowDown") {
     handleHistoryKey(event);
     return;
@@ -363,8 +445,7 @@ input.addEventListener("keydown", (event) => {
       const caretAtEnd = input.selectionStart === input.value.length;
       if (caretAtEnd) {
         event.preventDefault();
-        input.value = suggestion;
-        setHint("");
+        acceptAutocomplete();
       }
     }
   }
@@ -373,8 +454,7 @@ input.addEventListener("keydown", (event) => {
     const suggestion = getSuggestion(input.value);
     if (suggestion) {
       event.preventDefault();
-      input.value = suggestion;
-      setHint("");
+      acceptAutocomplete();
     }
   }
 });
@@ -382,7 +462,17 @@ input.addEventListener("keydown", (event) => {
 input.addEventListener("input", () => {
   const suggestion = getSuggestion(input.value);
   setHint(suggestion);
+  updateAutocompleteButton();
 });
+
+if (autocompleteAccept) {
+  autocompleteAccept.addEventListener("click", () => {
+    acceptAutocomplete();
+    updateAutocompleteButton();
+  });
+}
+
+updateAutocompleteButton();
 
 document.querySelectorAll("[data-cmd]").forEach((button) => {
   button.addEventListener("click", () => {

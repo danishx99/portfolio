@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <title>Danish Saleem | Terminal Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,6 +40,33 @@
               <span></span><span></span><span></span>
             </div>
             <p class="terminal-title">portfolio.sh</p>
+            <button
+              class="fullscreen-toggle"
+              type="button"
+              aria-pressed="false"
+              aria-label="Toggle full screen terminal"
+            >
+              <svg class="icon-enter" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg class="icon-exit" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 5v4H5M15 5v4h4M19 15h-4v4M9 19v-4H5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
           <div id="terminalOutput" class="terminal-output" role="log" aria-live="polite"></div>
@@ -55,7 +85,24 @@
                 aria-label="Terminal command"
               />
             </div>
+            <button class="autocomplete-accept" type="button" aria-label="Accept autocomplete">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M8 5l8 7-8 7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </form>
+          <div class="terminal-hints" aria-label="Keyboard shortcuts">
+            <span>↑/↓ history</span>
+            <span>Tab autocomplete</span>
+            <span>Esc clear</span>
+          </div>
 
         </div>
 
@@ -91,7 +138,7 @@
             <section class="panel" id="panel-tools">
               <h2>Agentic Toolkit</h2>
               <p id="toolsLead"></p>
-              <ul id="toolsList" class="list"></ul>
+              <div id="toolsSections" class="tool-sections"></div>
               <div class="file-hint">
                 <p>Also available via terminal:</p>
                 <code>cat tools.md</code>
