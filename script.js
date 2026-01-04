@@ -9,70 +9,183 @@ const data = {
   role: "AI/Software Engineer",
   tagline: "Software engineer doing AI work, AI engineer doing software work.",
   aboutLead:
-    "AI/Software Engineer and recent Computer Science graduate from the University of the Witwatersrand. I design AI-powered solutions with a focus on RAG systems, LLMs, and prompt engineering, while delivering user-centric applications.",
+    "I build products end-to-end, using agentic coding to speed up delivery while keeping quality high.",
   highlights: [
-    "Full-stack foundations: React, Next.js, Node.js, PostgreSQL, MongoDB.",
-    "Vector search with Pinecone and Qdrant for production RAG systems.",
-    "Careful use of agentic tooling with reviewable, auditable outputs.",
+    "End-to-end product delivery, from prototype to production.",
+    "Fast iteration without losing reliability.",
+    "Hands-on across build, ship, and maintain.",
   ],
-  toolsLead:
-    "Agentic tools are part of the craft. I keep them curated, controlled, and documented.",
   work: [
     {
       company: "Supertube",
+      companyUrl: "https://www.linkedin.com/company/supertubeassociates",
       role: "AI Engineer",
       dates: "Jan 2025 – Present",
       description:
-        "Primarily responsible for all technical implementations of custom products. From developing and building RAG-powered assistants integrated into services like MS Teams and WhatsApp to building comprehensive web solutions, I ensure execution from prototype to production.",
+        "Led technical delivery of custom products, from AI assistants integrated with MS Teams and WhatsApp to full web solutions—owning execution from prototype to production.",
     },
   ],
   tools: {
-    "AI / LLM Workflow": [
-      "LangChain, LlamaIndex, Haystack",
-      "Hugging Face, OpenWebUI",
-      "RAG systems, LLMs, prompt engineering",
-      "OpenAI API + SDK",
-    ],
-    Web: [
-      "React, Next.js, Node.js, Express.js",
-      "TailwindCSS, Jest",
-      "HTML/CSS, JavaScript, TypeScript",
+    "Agentic Coding": [
+      {
+        name: "Cursor",
+        description:
+          "My introduction to AI-assisted coding; now used as a clean IDE with great tab completion.",
+        modelOfChoice: "Opus 4.5, Composer-1",
+      },
+      {
+        name: "Opencode",
+        description:
+          "Open-source with a strong community—easy to tweak, extend with plugins, and make your own.",
+        modelOfChoice: "Opus 4.5, GLM 4.7",
+      },
+      {
+        name: "Codex",
+        description:
+          "Feels like a senior engineer at your fingertips: slower and steady, but reliable for hard problems.",
+        modelOfChoice: "GPT 5.2-codex",
+      },
     ],
     "Dev Tooling": [
-      "Git, Docker",
-      "PostgreSQL, MongoDB",
-      "Pinecone, ChromaDB, Qdrant",
+      {
+        name: "WSL",
+        description: "Primary Linux dev environment on Windows.",
+      },
+      {
+        name: "Tailscale",
+        description: "Secure remote access for mobile development.",
+      },
+      {
+        name: "Termius",
+        description: "Mobile SSH client for working on the go.",
+      },
+      {
+        name: "fish",
+        description: "My daily shell with great command autocomplete.",
+      },
+      {
+        name: "tmux",
+        description: "Session management and fast pane workflows.",
+      },
+      {
+        name: "Git",
+        description: "Clean history and collaborative workflows.",
+      },
+      {
+        name: "Docker",
+        description: "Repeatable environments across dev and prod.",
+      },
+      {
+        name: "Bun",
+        description: "Fast runtime and package manager.",
+      },
+    ],
+    Web: [
+      {
+        name: "React",
+        description: "Component-driven UI with reusable patterns.",
+      },
+      {
+        name: "Next.js",
+        description: "Full-stack React with routing and SSR.",
+      },
+      {
+        name: "Node.js",
+        description: "Server runtimes and API services.",
+      },
+      {
+        name: "Express",
+        description: "Lightweight APIs and middleware.",
+      },
+      {
+        name: "TypeScript",
+        description: "Type-safe codebases and clearer contracts.",
+      },
+      {
+        name: "JavaScript",
+        description: "Core language for web app logic.",
+      },
+      {
+        name: "HTML/CSS",
+        description: "Semantic layouts and responsive styles.",
+      },
+      {
+        name: "Tailwind CSS",
+        description: "Utility-first styling for fast UI work.",
+      },
+      {
+        name: "PostgreSQL",
+        description: "Relational data modeling and queries.",
+      },
+      {
+        name: "Vitest",
+        description: "Fast unit testing for web code.",
+      },
     ],
     "Delivery / Ops": [
-      "Microsoft Azure, AWS, GCP",
-      "DigitalOcean, Cloudflare",
-      "CI/CD, TDD, Agile (Scrum)",
+      {
+        name: "Cloud platforms",
+        description: "Azure and AWS for production deployments.",
+      },
+      {
+        name: "Vercel",
+        description: "Fast frontend deploys and previews.",
+      },
+      {
+        name: "DigitalOcean",
+        description: "Lean infrastructure for smaller deployments.",
+      },
+      {
+        name: "Cloudflare",
+        description: "DNS, edge caching, and security at the edge.",
+      },
+      {
+        name: "Sentry",
+        description: "Error monitoring and issue triage.",
+      },
+      {
+        name: "Grafana",
+        description: "Dashboards for metrics and uptime.",
+      },
     ],
   },
   contact: {
     email: "saleemdf99@gmail.com",
-    website: "https://www.danishsaleem.dev",
-    location: "Johannesburg, South Africa",
     linkedin: "https://www.linkedin.com/in/danishsaleemx/",
     github: "https://github.com/danishx99",
   },
   projects: [
     {
-      title: "Campus Safety App",
+      title: "Tube",
       description:
-        "Real-time campus safety platform with alerts, reporting, and live updates.",
-      stack: "Full-stack web app",
-      link: "https://campus-safety.azurewebsites.net/",
-      repo: "https://github.com/danishx99/campus-safety-app",
+        "The solution for school-to-parent communication solved in WhatsApp.",
+      stack: "Product platform",
+      link: "https://thetube.ai",
+      repo: "",
     },
     {
-      title: "Commongrounds Residential Management",
-      description:
-        "Property management platform for sectional title bodies corporate.",
-      stack: "Responsive web platform",
-      link: "https://common-grounds-app.onrender.com",
-      repo: "https://github.com/danishx99/common-grounds-app",
+      title: "Chatbotz",
+      description: "A no-code, simple-to-setup support chatbot for your website.",
+      stack: "SaaS product",
+      link: "https://chatbotz.co.za",
+      repo: "",
     },
+    // {
+    //   title: "Campus Safety App",
+    //   description:
+    //     "Real-time campus safety platform with alerts, reporting, and live updates.",
+    //   stack: "Full-stack web app",
+    //   link: "https://campus-safety.azurewebsites.net/",
+    //   repo: "https://github.com/danishx99/campus-safety-app",
+    // },
+    // {
+    //   title: "Commongrounds Residential Management",
+    //   description:
+    //     "Property management platform for sectional title bodies corporate.",
+    //   stack: "Responsive web platform",
+    //   link: "https://common-grounds-app.onrender.com",
+    //   repo: "https://github.com/danishx99/common-grounds-app",
+    // },
     {
       title: "Fat Guys - 3D Platformer Game",
       description:
@@ -164,10 +277,29 @@ const panels = document.querySelectorAll(".panel");
 const aboutLead = document.getElementById("aboutLead");
 const aboutHighlights = document.getElementById("aboutHighlights");
 const projectsGrid = document.getElementById("projectsGrid");
-const toolsLead = document.getElementById("toolsLead");
-const toolsSections = document.getElementById("toolsSections");
+const toolsTabs = document.getElementById("toolsTabs");
+const toolsPanels = document.getElementById("toolsPanels");
 const workList = document.getElementById("workList");
 const contactCard = document.getElementById("contactCard");
+
+function toSlug(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function setActiveToolTab(target) {
+  if (!toolsTabs || !toolsPanels) return;
+  toolsTabs.querySelectorAll(".tool-tab").forEach((tab) => {
+    const isActive = tab.dataset.tool === target;
+    tab.classList.toggle("active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+  });
+  toolsPanels.querySelectorAll(".tool-panel").forEach((panel) => {
+    panel.classList.toggle("active", panel.id === `tool-${target}`);
+  });
+}
 
 function renderSidebar() {
   aboutLead.textContent = data.aboutLead;
@@ -191,25 +323,75 @@ function renderSidebar() {
     )
     .join("");
 
-  toolsLead.textContent = data.toolsLead;
-  toolsSections.innerHTML = Object.entries(data.tools)
-    .map(
-      ([title, items]) => `
-      <div class="tool-section">
-        <h3>${title}</h3>
-        <ul>
-          ${items.map((item) => `<li>${item}</li>`).join("")}
-        </ul>
-      </div>
-    `
-    )
-    .join("");
+  if (toolsTabs && toolsPanels) {
+    const toolEntries = Object.entries(data.tools).map(([title, items]) => ({
+      title,
+      items,
+      slug: toSlug(title),
+    }));
+
+    toolsTabs.innerHTML = toolEntries
+      .map(
+        (entry, index) => `
+        <button
+          class="tool-tab ${index === 0 ? "active" : ""}"
+          type="button"
+          role="tab"
+          aria-selected="${index === 0 ? "true" : "false"}"
+          aria-controls="tool-${entry.slug}"
+          data-tool="${entry.slug}"
+        >
+          ${entry.title}
+        </button>
+      `
+      )
+      .join("");
+
+    toolsPanels.innerHTML = toolEntries
+      .map(
+        (entry, index) => `
+        <section
+          class="tool-panel ${index === 0 ? "active" : ""}"
+          id="tool-${entry.slug}"
+          role="tabpanel"
+        >
+          <ul class="tool-list">
+            ${entry.items
+              .map(
+                (item) => `
+              <li>
+                <span class="tool-name">${item.name}</span>
+                <span class="tool-desc">${item.description}</span>
+                ${item.modelOfChoice ? `<span class="tool-model">Model of choice: ${item.modelOfChoice}</span>` : ""}
+              </li>
+            `
+              )
+              .join("")}
+          </ul>
+        </section>
+      `
+      )
+      .join("");
+
+    const toolButtons = toolsTabs.querySelectorAll(".tool-tab");
+    toolButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setActiveToolTab(button.dataset.tool);
+      });
+    });
+  }
 
   workList.innerHTML = data.work
     .map(
       (item) => `
       <article class="card">
-        <h3>${item.company}</h3>
+        <h3>
+          ${
+            item.companyUrl
+              ? `<a class="work-company-link" href="${item.companyUrl}" target="_blank" rel="noreferrer">${item.company}</a>`
+              : item.company
+          }
+        </h3>
         <p>${item.role} · ${item.dates}</p>
         <p>${item.description}</p>
       </article>
@@ -219,10 +401,8 @@ function renderSidebar() {
 
   contactCard.innerHTML = `
     <div><strong>Email</strong><br><a href="mailto:${data.contact.email}">${data.contact.email}</a></div>
-    <div><strong>Website</strong><br><a href="${data.contact.website}" target="_blank" rel="noreferrer">${data.contact.website}</a></div>
     <div><strong>LinkedIn</strong><br><a href="${data.contact.linkedin}" target="_blank" rel="noreferrer">${data.contact.linkedin}</a></div>
     <div><strong>GitHub</strong><br><a href="${data.contact.github}" target="_blank" rel="noreferrer">${data.contact.github}</a></div>
-    <div><strong>Location</strong><br>${data.contact.location}</div>
   `;
 }
 
@@ -335,22 +515,34 @@ function projectsOutput() {
 
 function toolsOutput() {
   const sections = Object.entries(data.tools)
-    .map(([title, items]) => `${title}\n${items.map((item) => `- ${item}`).join("\n")}`)
+    .map(
+      ([title, items]) =>
+        `${title}\n${items
+          .map(
+            (item) =>
+              `- ${item.name}: ${item.description}${
+                item.modelOfChoice ? ` (Model of choice: ${item.modelOfChoice})` : ""
+              }`
+          )
+          .join("\n")}`
+    )
     .join("\n\n");
-  return `${data.toolsLead}\n\n${sections}`;
+  return sections;
 }
 
 function workOutput() {
   return data.work
     .map(
       (item) =>
-        `${item.company} — ${item.role} (${item.dates})\n${item.description}`
+        `${item.company} — ${item.role} (${item.dates})\n${item.description}${
+          item.companyUrl ? `\n${item.companyUrl}` : ""
+        }`
     )
     .join("\n\n");
 }
 
 function contactOutput() {
-  return `Email: ${data.contact.email}\nWebsite: ${data.contact.website}\nLinkedIn: ${data.contact.linkedin}\nGitHub: ${data.contact.github}\nLocation: ${data.contact.location}`;
+  return `Email: ${data.contact.email}\nLinkedIn: ${data.contact.linkedin}\nGitHub: ${data.contact.github}`;
 }
 
 function runCommand(raw) {
