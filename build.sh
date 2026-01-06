@@ -6,6 +6,10 @@ mkdir -p dist
 
 cp index.html styles.css script.js dist/
 
+if [ -f favicon.svg ]; then
+  cp favicon.svg dist/
+fi
+
 if [ -d assets ]; then
   cp -R assets dist/
 fi
