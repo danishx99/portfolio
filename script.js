@@ -477,7 +477,7 @@ function appendLine(command, text) {
   const wrapper = document.createElement("div");
   wrapper.className = "line";
   wrapper.innerHTML = `
-    <div class="cmd">$ ${command}</div>
+    <div class="cmd">&gt; ${command}</div>
     <div>${formattedText}</div>
   `;
   output.appendChild(wrapper);
@@ -643,9 +643,9 @@ input.addEventListener("keydown", (event) => {
   }
 
   if (event.key === "Tab") {
+    event.preventDefault();
     const suggestion = getSuggestion(input.value);
     if (suggestion) {
-      event.preventDefault();
       acceptAutocomplete();
     }
   }
@@ -688,6 +688,3 @@ tabs.forEach((tab) => {
 });
 
 renderSidebar();
-
-appendLine("help", helpOutput());
-appendLine("ls", commands.ls.run());
