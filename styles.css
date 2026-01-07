@@ -285,6 +285,28 @@ body.fullscreen-open {
   color: var(--accent);
 }
 
+.terminal-output .banner {
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.terminal-output .banner-text {
+  margin: 0;
+  white-space: pre;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--terminal-ink);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  font-size: 0.375em;
+}
+
+.terminal-output .banner-note {
+  margin-top: 10px;
+  color: var(--terminal-muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+
 .terminal-output .muted {
   color: var(--terminal-muted);
 }

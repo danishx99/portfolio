@@ -215,21 +215,16 @@ const commands = {
     description: "List files in the portfolio",
     run: () => data.files.join("\n"),
   },
-  about: {
+  whoami: {
     description: "Quick bio + highlights",
     run: () => aboutOutput(),
-  },
-  whoami: {
-    description: "Personal snapshot",
-    run: () =>
-      "Danish Saleem — AI/Software Engineer.\nStatus: Placeholder profile (add a short bio + current focus + location).\nType 'about' for full details.",
   },
   projects: {
     description: "Recent projects",
     run: () => projectsOutput(),
   },
   tools: {
-    description: "Agentic toolkit",
+    description: "The software I use to build",
     run: () => toolsOutput(),
   },
   work: {
@@ -242,7 +237,7 @@ const commands = {
   },
   resume: {
     description: "Download resume",
-    run: () => "resume.pdf — available on request",
+    run: () => "resume.pdf — available on request.\nPlease feel free to reach out.",
   },
   blog: {
     description: "Latest writing",
@@ -255,7 +250,7 @@ const commands = {
 };
 
 const commandAliases = {
-  "cat about.txt": "about",
+  "cat about.txt": "whoami",
   "cat projects.json": "projects",
   "cat tools.md": "tools",
   "cat work.md": "work",
@@ -484,6 +479,17 @@ function appendLine(command, text) {
   output.scrollTop = output.scrollHeight;
 }
 
+function appendBanner(text, note) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "line banner";
+  wrapper.innerHTML = `
+    <pre class="banner-text">${text}</pre>
+    <div class="banner-note">${note}</div>
+  `;
+  output.appendChild(wrapper);
+  output.scrollTop = output.scrollHeight;
+}
+
 function linkify(text) {
   const urlPattern = /(https?:\/\/[^\s)]+)/g;
   return text.replace(urlPattern, (url) => {
@@ -563,8 +569,8 @@ function runCommand(raw) {
   appendLine(command, response);
   setHint("");
 
-  if (["about", "projects", "tools", "work", "contact"].includes(base)) {
-    setActivePanel(base);
+  if (["whoami", "projects", "tools", "work", "contact"].includes(base)) {
+    setActivePanel(base === "whoami" ? "about" : base);
   }
 }
 
@@ -688,3 +694,15 @@ tabs.forEach((tab) => {
 });
 
 renderSidebar();
+
+appendBanner(
+  String.raw`$$$$$$$\                      $$\           $$\     $$\               $$$$$$$\                       $$\      $$$$$$\           $$\ $$\           
+$$  __$$\                     \__|          $$ |    $  |              $$  __$$\                      $$ |    $$  __$$\          $$ |\__|          
+$$ |  $$ | $$$$$$\  $$$$$$$\  $$\  $$$$$$$\ $$$$$$$\\_/$$$$$$$\       $$ |  $$ | $$$$$$\   $$$$$$\ $$$$$$\   $$ /  \__|$$$$$$\  $$ |$$\  $$$$$$\  
+$$ |  $$ | \____$$\ $$  __$$\ $$ |$$  _____|$$  __$$\ $$  _____|      $$$$$$$  |$$  __$$\ $$  __$$\\_$$  _|  $$$$\    $$  __$$\ $$ |$$ |$$  __$$\ 
+$$ |  $$ | $$$$$$$ |$$ |  $$ |$$ |\$$$$$$\  $$ |  $$ |\$$$$$$\        $$  ____/ $$ /  $$ |$$ |  \__| $$ |    $$  _|   $$ /  $$ |$$ |$$ |$$ /  $$ |
+$$ |  $$ |$$  __$$ |$$ |  $$ |$$ | \____$$\ $$ |  $$ | \____$$\       $$ |      $$ |  $$ |$$ |       $$ |$$\ $$ |     $$ |  $$ |$$ |$$ |$$ |  $$ |
+$$$$$$$  |\$$$$$$$ |$$ |  $$ |$$ |$$$$$$$  |$$ |  $$ |$$$$$$$  |      $$ |      \$$$$$$  |$$ |       \$$$$  |$$ |     \$$$$$$  |$$ |$$ |\$$$$$$  |
+\_______/  \_______|\__|  \__|\__|\_______/ \__|  \__|\_______/       \__|       \______/ \__|        \____/ \__|      \______/ \__|\__| \______/`,
+  "Type help to get started"
+);
