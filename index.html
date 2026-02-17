@@ -1,176 +1,212 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <title>Danish Saleem | Terminal Portfolio</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="ambient" aria-hidden="true"></div>
-    <main class="shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">/home/danish</p>
-          <h1>Danish Saleem</h1>
-          <p class="tagline">Software engineer doing AI work, AI engineer doing software work.</p>
-        </div>
-        <div class="status">
-          <span class="dot"></span>
-          <div>
-            <p class="status-title">Terminal Online</p>
-            <p class="status-sub">Type `help` to get started</p>
-          </div>
-        </div>
-      </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <title>Danish Saleem | Terminal Portfolio</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="ambient" aria-hidden="true"></div>
+        <main class="shell">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">/home/danish</p>
+                    <h1>Danish Saleem</h1>
+                    <p class="tagline">
+                        Software engineer doing AI work, AI engineer doing
+                        software work.
+                    </p>
+                </div>
+                <div class="status">
+                    <span class="dot"></span>
+                    <div>
+                        <p class="status-title">Terminal Online</p>
+                        <p class="status-sub">Type `help` to get started</p>
+                    </div>
+                </div>
+            </header>
 
-      <section class="layout">
-        <div class="terminal-card">
-          <div class="terminal-header">
-            <div class="window-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <p class="terminal-title">portfolio.sh</p>
-            <button
-              class="fullscreen-toggle"
-              type="button"
-              aria-pressed="false"
-              aria-label="Toggle full screen terminal"
-            >
-              <svg class="icon-enter" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <svg class="icon-exit" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M9 5v4H5M15 5v4h4M19 15h-4v4M9 19v-4H5"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
+            <section class="layout">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="window-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <p class="terminal-title">portfolio.sh</p>
+                        <button
+                            class="fullscreen-toggle"
+                            type="button"
+                            aria-pressed="false"
+                            aria-label="Toggle full screen terminal"
+                        >
+                            <svg
+                                class="icon-enter"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                            <svg
+                                class="icon-exit"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M9 5v4H5M15 5v4h4M19 15h-4v4M9 19v-4H5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+                    </div>
 
-          <div id="terminalOutput" class="terminal-output" role="log" aria-live="polite"></div>
+                    <div
+                        id="terminalOutput"
+                        class="terminal-output"
+                        role="log"
+                        aria-live="polite"
+                    ></div>
 
-          <form id="terminalForm" class="terminal-input" autocomplete="off">
-            <span class="prompt">danish@portfolio:~&nbsp;&gt;</span>
-            <div class="input-wrap">
-              <span id="autocompleteHint" class="autocomplete-hint" aria-hidden="true"></span>
-              <input
-                id="commandInput"
-                name="command"
-                type="text"
-                spellcheck="false"
-                autocomplete="off"
-                aria-label="Terminal command"
-              />
-            </div>
-            <button class="autocomplete-accept" type="button" aria-label="Accept autocomplete">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M8 5l8 7-8 7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </form>
-          <div class="terminal-hints" aria-label="Keyboard shortcuts">
-            <span>↑/↓ history</span>
-            <span>Tab autocomplete</span>
-            <span>Esc clear</span>
-          </div>
+                    <form
+                        id="terminalForm"
+                        class="terminal-input"
+                        autocomplete="off"
+                    >
+                        <span class="prompt">danish@portfolio:~&nbsp;&gt;</span>
+                        <div class="input-wrap">
+                            <span
+                                id="autocompleteHint"
+                                class="autocomplete-hint"
+                                aria-hidden="true"
+                            ></span>
+                            <input
+                                id="commandInput"
+                                name="command"
+                                type="text"
+                                spellcheck="false"
+                                autocomplete="off"
+                                aria-label="Terminal command"
+                            />
+                        </div>
+                        <button
+                            class="autocomplete-accept"
+                            type="button"
+                            aria-label="Accept autocomplete"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M8 5l8 7-8 7"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="terminal-hints" aria-label="Keyboard shortcuts">
+                        <span>↑/↓ history</span>
+                        <span>Tab autocomplete</span>
+                        <span>Esc clear</span>
+                    </div>
+                </div>
 
-        </div>
+                <aside class="info-card">
+                    <div class="info-tabs">
+                        <button class="tab active" data-panel="about">
+                            About
+                        </button>
+                        <button class="tab" data-panel="projects">
+                            Projects
+                        </button>
+                        <button class="tab" data-panel="tools">Tools</button>
+                        <button class="tab" data-panel="work">Work</button>
+                        <button class="tab" data-panel="contact">
+                            Contact
+                        </button>
+                    </div>
 
-        <aside class="info-card">
-          <div class="info-tabs">
-            <button class="tab active" data-panel="about">About</button>
-            <button class="tab" data-panel="projects">Projects</button>
-            <button class="tab" data-panel="tools">Tools</button>
-            <button class="tab" data-panel="work">Work</button>
-            <button class="tab" data-panel="contact">Contact</button>
-          </div>
+                    <div class="info-panels">
+                        <section class="panel active" id="panel-about">
+                            <h2>About</h2>
+                            <p id="aboutLead"></p>
+                            <ul id="aboutHighlights" class="list"></ul>
+                            <div class="file-hint">
+                                <p>Also available via terminal:</p>
+                                <code>cat about.txt</code>
+                            </div>
+                        </section>
 
-          <div class="info-panels">
-            <section class="panel active" id="panel-about">
-              <h2>About</h2>
-              <p id="aboutLead"></p>
-              <ul id="aboutHighlights" class="list"></ul>
-              <div class="file-hint">
-                <p>Also available via terminal:</p>
-                <code>cat about.txt</code>
-              </div>
+                        <section class="panel" id="panel-projects">
+                            <h2>Projects</h2>
+                            <div id="projectsGrid" class="cards"></div>
+                            <div class="file-hint">
+                                <p>Also available via terminal:</p>
+                                <code>cat projects.json</code>
+                            </div>
+                        </section>
+
+                        <section class="panel" id="panel-tools">
+                            <div
+                                id="toolsTabs"
+                                class="tool-tabs"
+                                role="tablist"
+                                aria-label="Tool categories"
+                            ></div>
+                            <div id="toolsPanels" class="tool-panels"></div>
+                            <div class="file-hint">
+                                <p>Also available via terminal:</p>
+                                <code>cat tools.md</code>
+                            </div>
+                        </section>
+
+                        <section class="panel" id="panel-work">
+                            <h2>Work Experience</h2>
+                            <div id="workList" class="cards"></div>
+                            <div class="file-hint">
+                                <p>Also available via terminal:</p>
+                                <code>cat work.md</code>
+                            </div>
+                        </section>
+
+                        <section class="panel" id="panel-contact">
+                            <h2>Contact</h2>
+                            <div id="contactCard" class="contact"></div>
+                            <div class="file-hint">
+                                <p>Also available via terminal:</p>
+                                <code>cat contact.vcf</code>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
             </section>
-
-            <section class="panel" id="panel-projects">
-              <h2>Projects</h2>
-              <div id="projectsGrid" class="cards"></div>
-              <div class="file-hint">
-                <p>Also available via terminal:</p>
-                <code>cat projects.json</code>
-              </div>
-            </section>
-
-            <section class="panel" id="panel-tools">
-              <div
-                id="toolsTabs"
-                class="tool-tabs"
-                role="tablist"
-                aria-label="Tool categories"
-              ></div>
-              <div id="toolsPanels" class="tool-panels"></div>
-              <div class="file-hint">
-                <p>Also available via terminal:</p>
-                <code>cat tools.md</code>
-              </div>
-            </section>
-
-            <section class="panel" id="panel-work">
-              <h2>Work Experience</h2>
-              <div id="workList" class="cards"></div>
-              <div class="file-hint">
-                <p>Also available via terminal:</p>
-                <code>cat work.md</code>
-              </div>
-            </section>
-
-            <section class="panel" id="panel-contact">
-              <h2>Contact</h2>
-              <div id="contactCard" class="contact"></div>
-              <div class="file-hint">
-                <p>Also available via terminal:</p>
-                <code>cat contact.vcf</code>
-              </div>
-            </section>
-          </div>
-        </aside>
-      </section>
-    </main>
-
-    <script src="script.js"></script>
-  </body>
+        </main>
+        <script
+            src="https://styles.chatbotz.co.za/chatbotjsfile/widget.js"
+            data-id="534eb96d-8211-43ea-87dc-0db85109504a"
+        ></script>
+        <script src="script.js"></script>
+    </body>
 </html>
