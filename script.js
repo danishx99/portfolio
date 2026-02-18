@@ -31,19 +31,25 @@ const data = {
         name: "Cursor",
         description:
           "My introduction to AI-assisted coding; now used as a clean IDE with great tab completion.",
-        modelOfChoice: "Opus 4.5, Composer-1",
+        modelOfChoice: "Opus 4.6, Composer-1",
       },
       {
         name: "Opencode",
         description:
           "Open-source with a strong community—easy to tweak, extend with plugins, and make your own.",
-        modelOfChoice: "Opus 4.5, GLM 4.7",
+        modelOfChoice: "Opus 4.6, GLM 4.7",
       },
       {
         name: "Codex",
         description:
           "Feels like a senior engineer at your fingertips: slower and steady, but reliable for hard problems.",
-        modelOfChoice: "GPT 5.2-codex",
+        modelOfChoice: "GPT 5.3-codex",
+      },
+      {
+        name: "Claude Code",
+        description:
+          "Newest addition to my workflow for fast agentic coding with strong code understanding.",
+        modelOfChoice: "Opus 4.6",
       },
     ],
     "Dev Tooling": [
@@ -128,6 +134,10 @@ const data = {
         description: "Azure and AWS for production deployments.",
       },
       {
+        name: "Railway",
+        description: "Simple app and database deployments with fast iteration.",
+      },
+      {
         name: "Vercel",
         description: "Fast frontend deploys and previews.",
       },
@@ -156,18 +166,26 @@ const data = {
   },
   projects: [
     {
+      title: "Chatbotz",
+      description: "A no-code, simple-to-setup support chatbot for your website.",
+      stack: "SaaS product",
+      link: "https://chatbotz.co.za",
+      repo: "",
+    },
+    {
+      title: "RLCS SSA Database",
+      description:
+        "A central dashboard and database for RLCS SSA stats, teams, players, and results.",
+      stack: "Esports data platform",
+      link: "https://rlesport.gg/",
+      repo: "",
+    },
+    {
       title: "Tube",
       description:
         "The solution for school-to-parent communication solved in WhatsApp.",
       stack: "Product platform",
       link: "https://thetube.ai",
-      repo: "",
-    },
-    {
-      title: "Chatbotz",
-      description: "A no-code, simple-to-setup support chatbot for your website.",
-      stack: "SaaS product",
-      link: "https://chatbotz.co.za",
       repo: "",
     },
     // {
@@ -186,14 +204,6 @@ const data = {
     //   link: "https://common-grounds-app.onrender.com",
     //   repo: "https://github.com/danishx99/common-grounds-app",
     // },
-    {
-      title: "Fat Guys - 3D Platformer Game",
-      description:
-        "Three.js platformer with custom models, lighting, and progression systems.",
-      stack: "Three.js game",
-      link: "https://lamp.ms.wits.ac.za/~schickentendies/",
-      repo: "https://github.com/danishx99/fat-guys",
-    },
   ],
   files: [
     "about.txt",
