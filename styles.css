@@ -609,56 +609,109 @@ body.fullscreen-open {
 }
 
 .project-section {
+  margin-top: 20px;
+}
+
+.project-section p {
   font-size: 0.9rem;
   line-height: 1.5;
+  margin: 0;
 }
 
 .project-label {
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-size: 0.7rem;
+  margin: 0 0 6px;
+  opacity: 0.7;
+}
+
+.project-summary-full {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.stack-icon {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+.stack-text {
   font-size: 0.75rem;
-  margin-right: 4px;
-}
-
-.project-details {
-  margin: 10px 0;
-  border-top: 1px dashed var(--border);
-  padding-top: 8px;
-}
-
-.project-details > summary {
-  cursor: pointer;
-  font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-weight: 600;
-  padding: 4px 0;
-  list-style: none;
-  user-select: none;
-  opacity: 0.85;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  opacity: 0.75;
 }
 
-.project-details > summary::-webkit-details-marker {
+.project-card {
+  padding: 0;
+}
+
+.project-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.project-summary::-webkit-details-marker {
   display: none;
 }
 
-.project-details > summary::before {
-  content: "+ ";
-  display: inline-block;
+.project-summary-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-summary h3 {
+  margin: 0 0 4px;
+}
+
+.project-headline {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.project-toggle {
   width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.55;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.project-details[open] > summary::before {
-  content: "− ";
+.project-card[open] .project-toggle {
+  transform: rotate(180deg);
 }
 
-.project-details > summary:hover {
+.project-summary:hover .project-toggle {
   opacity: 1;
 }
 
-.project-details .project-section:last-child {
-  margin-bottom: 0;
+.project-body {
+  padding: 0 14px 14px;
+  border-top: 1px dashed var(--border);
+}
+
+.project-body > *:first-child {
+  margin-top: 12px;
 }
 
 .card a {
@@ -678,6 +731,12 @@ body.fullscreen-open {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.project-body > .card-links {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
 }
 
 .card-link {

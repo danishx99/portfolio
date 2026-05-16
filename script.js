@@ -167,37 +167,74 @@ const data = {
   projects: [
     {
       title: "Chatbotz",
+      headline:
+        "A no-code SaaS platform that lets businesses create and deploy AI chatbots on their websites in minutes.",
       summary:
-        "A no-code SaaS platform that lets businesses create and deploy AI chatbots on their websites in minutes. Users provide a website URL, the platform scrapes and indexes the content as a knowledge base, and generates a customisable chat widget they can embed. Includes branding customisation, document uploads, a 7-day free trial, and billing via PayFast.",
+        "Users provide a website URL, the platform scrapes and indexes the content as a knowledge base, and generates a customisable chat widget they can embed. Includes branding customisation, document uploads, a 7-day free trial, and billing via PayFast.",
       problem:
         "Small businesses want AI chatbots to handle customer queries and capture leads, but existing solutions are too expensive or too technical to set up.",
       impact:
         "Gives small businesses access to AI-powered customer support without needing any technical knowledge. A business can go from signup to live chatbot on their site in under 5 minutes.",
-      stack: "Next.js, TypeScript, OpenAI API, Supabase, PostgreSQL, Vercel, PayFast",
+      stack: [
+        { name: "TypeScript", slug: "typescript" },
+        { name: "Next.js", slug: "nextjs" },
+        { name: "React", slug: "react" },
+        { name: "Tailwind CSS", slug: "tailwindcss" },
+        { name: "Astro", slug: "astro" },
+        { name: "PostgreSQL", slug: "postgresql" },
+        { name: "OpenAI", slug: "openai" },
+        { name: "Vercel", slug: "vercel" },
+        { name: "Cloudflare", slug: "cloudflare" },
+        { name: "PayFast", slug: "payfast" },
+      ],
       link: "https://chatbotz.co.za",
       repo: "",
     },
     {
       title: "RLCS SSA Stats Hub",
+      headline:
+        "A Rocket League esports statistics platform for the South African scene.",
       summary:
-        "A Rocket League esports statistics platform for the South African scene, built in collaboration with GreybeardRL, a well-known caster, tournament organiser, and content creator in the local community. Tracks over 31,000 match records, 379 players, and 190 rosters across multiple seasons and event formats. Features player career profiles, roster histories, event brackets, standings, and head-to-head comparisons.",
+        "Built in collaboration with a well-known caster, tournament organiser, and content creator in the local community. Tracks over 31,000 match records, 379 players, and 190 rosters across multiple seasons and event formats. Features player career profiles, roster histories, event brackets, standings, and head-to-head comparisons.",
       problem:
-        "As a competitive Rocket League player who loves stats and analysis, I noticed there was no centralised stats platform for the SSA region. Match data was scattered across spreadsheets with no way for casters, analysts, or players to easily access it. The detailed historical data for the last few years of RLCS in SSA simply didn't exist in one place. A first-of-its-kind project for the region.",
+        "As a competitive Rocket League player who loves stats and analysis, I noticed there was no centralised stats platform for the SSA region. Detailed historical match data was either inaccessible or missing entirely, leaving casters, analysts, and players with no way to look anything up. A first-of-its-kind project for the region.",
       impact:
         "Now used by casters and analysts as a reference tool during live broadcasts and for event preparation. Became the go-to source for South African Rocket League esports data.",
-      stack: "TypeScript, Bun, React, PostgreSQL, Docker, Railway, Vite",
+      stack: [
+        { name: "TypeScript", slug: "typescript" },
+        { name: "PostgreSQL", slug: "postgresql" },
+        { name: "Bun", slug: "bun" },
+        { name: "React", slug: "react" },
+        { name: "Vite", slug: "vite" },
+        { name: "Docker", slug: "docker" },
+        { name: "Railway", slug: "railway" },
+        { name: "Nginx", slug: "nginx" },
+      ],
       link: "https://rlesport.gg/",
       repo: "https://github.com/danishx99/rlcs-stats",
     },
     {
       title: "Tube — AI School Chatbot Platform",
+      headline:
+        "A multi-tenant AI chatbot platform used by over 10 schools in the Western Cape.",
       summary:
-        "A multi-tenant AI chatbot platform used by over 10 schools in the Western Cape. Parents interact primarily over WhatsApp, allowing ease-of-use in a familiar environment. Each school's bot is grounded in their own documents, calendars, and policies using RAG and agentic tool use. Includes an admin dashboard where schools manage their knowledge base and content, an analytics layer that surfaces knowledge gaps (questions parents ask that the bot can't answer), and automated email reports on chat activity.",
+        "Parents interact primarily over WhatsApp, allowing ease-of-use in a familiar environment. Each school's bot is grounded in their own documents, calendars, and policies using RAG and agentic tool use. Includes an admin dashboard where schools manage their knowledge base and content, an analytics layer that surfaces knowledge gaps, and automated email reports on chat activity.",
       problem:
         "Schools were overwhelmed by repetitive parent queries, and parents had no easy way to get quick, accurate answers outside of office hours. This project is a time-saver for both schools and parents.",
       impact:
         "Used daily by parents across 10+ schools. Gives schools visibility into what information parents are actually looking for, and reduces the volume of routine queries hitting admin staff.",
-      stack: "TypeScript, Node.js, React, PostgreSQL, OpenAI API, Twilio, Azure, Docker",
+      stack: [
+        { name: "TypeScript", slug: "typescript" },
+        { name: "Node.js", slug: "nodejs" },
+        { name: "React", slug: "react" },
+        { name: "PostgreSQL", slug: "postgresql" },
+        { name: "Supabase", slug: "supabase" },
+        { name: "OpenAI", slug: "openai" },
+        { name: "Twilio", slug: "twilio" },
+        { name: "Azure", slug: "azure" },
+        { name: "AWS S3", slug: "amazonwebservices" },
+        { name: "DigitalOcean", slug: "digitalocean" },
+      ],
       link: "https://thetube.ai",
       repo: "",
     },
@@ -330,24 +367,45 @@ function renderSidebar() {
   projectsGrid.innerHTML = data.projects
     .map(
       (project) => `
-      <article class="card project-card">
-        <h3>${project.title}</h3>
-        <p>${project.summary}</p>
-        <details class="project-details">
-          <summary>Show problem &amp; impact</summary>
-          <p class="project-section"><span class="project-label">Problem:</span> ${project.problem}</p>
-          <p class="project-section"><span class="project-label">Impact:</span> ${project.impact}</p>
-        </details>
-        <p class="meta">${project.stack}</p>
-        <div class="card-links">
-          <a class="card-link card-link--globe" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Live site">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-          </a>
-          ${project.repo ? `<a class="card-link card-link--gh" href="${project.repo}" target="_blank" rel="noreferrer" aria-label="Source code on GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path></svg>
-          </a>` : ""}
+      <details class="card project-card">
+        <summary class="project-summary">
+          <div class="project-summary-text">
+            <h3>${project.title}</h3>
+            <p class="project-headline">${project.headline}</p>
+          </div>
+          <svg class="project-toggle" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="project-body">
+          <p class="project-summary-full">${project.summary}</p>
+          <div class="project-section">
+            <p class="project-label">Problem</p>
+            <p>${project.problem}</p>
+          </div>
+          <div class="project-section">
+            <p class="project-label">Impact</p>
+            <p>${project.impact}</p>
+          </div>
+          <div class="project-section">
+            <p class="project-label">Stack</p>
+            <div class="project-stack">
+              ${project.stack
+                .map(
+                  (item) =>
+                    `<img class="stack-icon" src="assets/icons/${item.slug}.svg" alt="${item.name}" title="${item.name}" loading="lazy" />`
+                )
+                .join("")}
+            </div>
+          </div>
+          <div class="card-links">
+            <a class="card-link card-link--globe" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Live site">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </a>
+            ${project.repo ? `<a class="card-link card-link--gh" href="${project.repo}" target="_blank" rel="noreferrer" aria-label="Source code on GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path></svg>
+            </a>` : ""}
+          </div>
         </div>
-      </article>
+      </details>
     `
     )
     .join("");
@@ -510,7 +568,7 @@ function appendLine(command, text) {
     <div>${formattedText}</div>
   `;
   output.appendChild(wrapper);
-  output.scrollTop = output.scrollHeight;
+  wrapper.scrollIntoView({ block: "start", behavior: "instant" });
 }
 
 function appendBanner(text, note) {
@@ -521,7 +579,6 @@ function appendBanner(text, note) {
     <div class="banner-note">${note}</div>
   `;
   output.appendChild(wrapper);
-  output.scrollTop = output.scrollHeight;
 }
 
 function linkify(text) {
@@ -546,10 +603,10 @@ function aboutOutput() {
 
 function projectsOutput() {
   return data.projects
-    .map(
-      (project, index) =>
-        `${index + 1}. ${project.title}\n   ${project.summary}\n\n   Problem: ${project.problem}\n\n   Impact: ${project.impact}\n\n   Stack: ${project.stack}\n   Link: ${project.link}${project.repo ? `\n   Repo: ${project.repo}` : ""}`
-    )
+    .map((project, index) => {
+      const stack = project.stack.map((item) => item.name).join(", ");
+      return `${index + 1}. ${project.title}\n   ${project.headline}\n   ${project.summary}\n\n   Problem: ${project.problem}\n\n   Impact: ${project.impact}\n\n   Stack: ${stack}\n   Link: ${project.link}${project.repo ? `\n   Repo: ${project.repo}` : ""}`;
+    })
     .join("\n\n");
 }
 
