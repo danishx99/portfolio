@@ -9,20 +9,20 @@ const data = {
   role: "AI/Software Engineer",
   tagline: "Software engineer doing AI work, AI engineer doing software work.",
   aboutLead:
-    "I build products end-to-end, using agentic coding to speed up delivery while keeping quality high.",
+    "I'm the sole engineer at an AI startup, shipping the entire product suite to real users. I also build side projects for things I care about.",
   highlights: [
-    "End-to-end product delivery, from prototype to production.",
-    "Fast iteration without losing reliability.",
-    "Hands-on across build, ship, and maintain.",
+    "Across the stack: frontend, backend, infrastructure, and production ops.",
+    "Deep in RAG, AI agents, and multi-tenant systems.",
+    "AI-native workflow with Claude Code and Codex as daily drivers.",
   ],
   work: [
     {
       company: "Supertube",
       companyUrl: "https://www.linkedin.com/company/supertubeassociates",
-      role: "AI Engineer",
+      role: "AI Solutions Engineer",
       dates: "Jan 2025 – Present",
       description:
-        "Led technical delivery of custom products, from AI assistants integrated with MS Teams and WhatsApp to full web solutions—owning execution from prototype to production.",
+        "Sole developer with full technical ownership of the entire product suite. I own architecture, auth, admin dashboards, document ingestion pipelines, CI/CD, Azure deployments, VPS infrastructure, and production operations across 10+ repositories. Scope spans internal products and client-facing AI work.",
     },
   ],
   tools: {
@@ -31,13 +31,13 @@ const data = {
         name: "Cursor",
         description:
           "My introduction to AI-assisted coding; now used as a clean IDE with great tab completion.",
-        modelOfChoice: "Opus 4.6, Composer-1",
+        modelOfChoice: "Opus 4.7, Composer-1",
       },
       {
         name: "Opencode",
         description:
           "Open-source with a strong community—easy to tweak, extend with plugins, and make your own.",
-        modelOfChoice: "Opus 4.6, GLM 4.7",
+        modelOfChoice: "Opus 4.7, GLM 4.7",
       },
       {
         name: "Codex",
@@ -49,7 +49,7 @@ const data = {
         name: "Claude Code",
         description:
           "Newest addition to my workflow for fast agentic coding with strong code understanding.",
-        modelOfChoice: "Opus 4.6",
+        modelOfChoice: "Opus 4.7",
       },
     ],
     "Dev Tooling": [
@@ -167,24 +167,37 @@ const data = {
   projects: [
     {
       title: "Chatbotz",
-      description: "A no-code, simple-to-setup support chatbot for your website.",
-      stack: "SaaS product",
+      summary:
+        "A no-code SaaS platform that lets businesses create and deploy AI chatbots on their websites in minutes. Users provide a website URL, the platform scrapes and indexes the content as a knowledge base, and generates a customisable chat widget they can embed. Includes branding customisation, document uploads, a 7-day free trial, and billing via PayFast.",
+      problem:
+        "Small businesses want AI chatbots to handle customer queries and capture leads, but existing solutions are too expensive or too technical to set up.",
+      impact:
+        "Gives small businesses access to AI-powered customer support without needing any technical knowledge. A business can go from signup to live chatbot on their site in under 5 minutes.",
+      stack: "Next.js, TypeScript, OpenAI API, Supabase, PostgreSQL, Vercel, PayFast",
       link: "https://chatbotz.co.za",
       repo: "",
     },
     {
-      title: "RLCS SSA Database",
-      description:
-        "A central dashboard and database for RLCS SSA stats, teams, players, and results.",
-      stack: "Esports data platform",
+      title: "RLCS SSA Stats Hub",
+      summary:
+        "A Rocket League esports statistics platform for the South African scene, built in collaboration with GreybeardRL, a well-known caster, tournament organiser, and content creator in the local community. Tracks over 31,000 match records, 379 players, and 190 rosters across multiple seasons and event formats. Features player career profiles, roster histories, event brackets, standings, and head-to-head comparisons.",
+      problem:
+        "As a competitive Rocket League player who loves stats and analysis, I noticed there was no centralised stats platform for the SSA region. Match data was scattered across spreadsheets with no way for casters, analysts, or players to easily access it. The detailed historical data for the last few years of RLCS in SSA simply didn't exist in one place. A first-of-its-kind project for the region.",
+      impact:
+        "Now used by casters and analysts as a reference tool during live broadcasts and for event preparation. Became the go-to source for South African Rocket League esports data.",
+      stack: "TypeScript, Bun, React, PostgreSQL, Docker, Railway, Vite",
       link: "https://rlesport.gg/",
       repo: "https://github.com/danishx99/rlcs-stats",
     },
     {
-      title: "Tube",
-      description:
-        "The solution for school-to-parent communication solved in WhatsApp.",
-      stack: "Product platform",
+      title: "Tube — AI School Chatbot Platform",
+      summary:
+        "A multi-tenant AI chatbot platform used by over 10 schools in the Western Cape. Parents interact primarily over WhatsApp, allowing ease-of-use in a familiar environment. Each school's bot is grounded in their own documents, calendars, and policies using RAG and agentic tool use. Includes an admin dashboard where schools manage their knowledge base and content, an analytics layer that surfaces knowledge gaps (questions parents ask that the bot can't answer), and automated email reports on chat activity.",
+      problem:
+        "Schools were overwhelmed by repetitive parent queries, and parents had no easy way to get quick, accurate answers outside of office hours. This project is a time-saver for both schools and parents.",
+      impact:
+        "Used daily by parents across 10+ schools. Gives schools visibility into what information parents are actually looking for, and reduces the volume of routine queries hitting admin staff.",
+      stack: "TypeScript, Node.js, React, PostgreSQL, OpenAI API, Twilio, Azure, Docker",
       link: "https://thetube.ai",
       repo: "",
     },
@@ -212,7 +225,6 @@ const data = {
     "work.md",
     "contact.vcf",
     "resume.pdf",
-    "blog.md",
   ],
 };
 
@@ -247,11 +259,15 @@ const commands = {
   },
   resume: {
     description: "Download resume",
-    run: () => "resume.pdf — available on request.\nPlease feel free to reach out.",
-  },
-  blog: {
-    description: "Latest writing",
-    run: () => "blog.md — coming soon",
+    run: () => {
+      const link = document.createElement("a");
+      link.href = "Danish_Saleem_CV.pdf";
+      link.download = "Danish_Saleem_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      return "Downloading Danish_Saleem_CV.pdf...\nDirect link: https://danishsaleem.dev/Danish_Saleem_CV.pdf";
+    },
   },
   clear: {
     description: "Clear the terminal",
@@ -266,7 +282,6 @@ const commandAliases = {
   "cat work.md": "work",
   "cat contact.vcf": "contact",
   "cat resume.pdf": "resume",
-  "cat blog.md": "blog",
 };
 
 const output = document.getElementById("terminalOutput");
@@ -315,9 +330,14 @@ function renderSidebar() {
   projectsGrid.innerHTML = data.projects
     .map(
       (project) => `
-      <article class="card">
+      <article class="card project-card">
         <h3>${project.title}</h3>
-        <p>${project.description}</p>
+        <p>${project.summary}</p>
+        <details class="project-details">
+          <summary>Show problem &amp; impact</summary>
+          <p class="project-section"><span class="project-label">Problem:</span> ${project.problem}</p>
+          <p class="project-section"><span class="project-label">Impact:</span> ${project.impact}</p>
+        </details>
         <p class="meta">${project.stack}</p>
         <div class="card-links">
           <a class="card-link card-link--globe" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Live site">
@@ -528,9 +548,9 @@ function projectsOutput() {
   return data.projects
     .map(
       (project, index) =>
-        `${index + 1}. ${project.title} — ${project.description} (${project.link})`
+        `${index + 1}. ${project.title}\n   ${project.summary}\n\n   Problem: ${project.problem}\n\n   Impact: ${project.impact}\n\n   Stack: ${project.stack}\n   Link: ${project.link}${project.repo ? `\n   Repo: ${project.repo}` : ""}`
     )
-    .join("\n");
+    .join("\n\n");
 }
 
 function toolsOutput() {

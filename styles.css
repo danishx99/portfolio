@@ -608,6 +608,59 @@ body.fullscreen-open {
   text-transform: uppercase;
 }
 
+.project-section {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.project-label {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
+
+.project-details {
+  margin: 10px 0;
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+}
+
+.project-details > summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 0;
+  list-style: none;
+  user-select: none;
+  opacity: 0.85;
+}
+
+.project-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details > summary::before {
+  content: "+ ";
+  display: inline-block;
+  width: 14px;
+}
+
+.project-details[open] > summary::before {
+  content: "− ";
+}
+
+.project-details > summary:hover {
+  opacity: 1;
+}
+
+.project-details .project-section:last-child {
+  margin-bottom: 0;
+}
+
 .card a {
   color: var(--ink);
   text-decoration: underline;
