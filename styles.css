@@ -627,6 +627,33 @@ body.fullscreen-open {
   flex-wrap: wrap;
 }
 
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 0;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-link {
+    transition: opacity 0.15s ease;
+  }
+  .card-link:hover,
+  .card-link:focus-visible {
+    transform: none;
+  }
+}
+
 .contact {
   border: 1px solid var(--border);
   background: var(--soft);

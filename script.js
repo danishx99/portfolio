@@ -178,7 +178,7 @@ const data = {
         "A central dashboard and database for RLCS SSA stats, teams, players, and results.",
       stack: "Esports data platform",
       link: "https://rlesport.gg/",
-      repo: "",
+      repo: "https://github.com/danishx99/rlcs-stats",
     },
     {
       title: "Tube",
@@ -320,8 +320,12 @@ function renderSidebar() {
         <p>${project.description}</p>
         <p class="meta">${project.stack}</p>
         <div class="card-links">
-          <a href="${project.link}" target="_blank" rel="noreferrer">Live</a>
-          ${project.repo ? `<a href="${project.repo}" target="_blank" rel="noreferrer">Code</a>` : ""}
+          <a class="card-link card-link--globe" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Live site">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </a>
+          ${project.repo ? `<a class="card-link card-link--gh" href="${project.repo}" target="_blank" rel="noreferrer" aria-label="Source code on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path></svg>
+          </a>` : ""}
         </div>
       </article>
     `
