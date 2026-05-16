@@ -290,6 +290,12 @@ body.fullscreen-open {
   padding: 0;
 }
 
+.terminal-output .banner-words {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
 .terminal-output .banner-text {
   margin: 0;
   white-space: pre;
@@ -298,6 +304,13 @@ body.fullscreen-open {
   letter-spacing: 0.02em;
   line-height: 1.2;
   font-size: 0.375em;
+}
+
+@media (max-width: 640px) {
+  .terminal-output .banner-words {
+    flex-direction: column;
+    gap: 0.4em;
+  }
 }
 
 .terminal-output .banner-note {

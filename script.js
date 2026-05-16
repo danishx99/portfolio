@@ -574,8 +574,15 @@ function appendLine(command, text) {
 function appendBanner(text, note) {
   const wrapper = document.createElement("div");
   wrapper.className = "line banner";
+  const splitIndex = 70;
+  const lines = text.split("\n");
+  const left = lines.map((l) => l.substring(0, splitIndex).trimEnd()).join("\n");
+  const right = lines.map((l) => l.substring(splitIndex).trimEnd()).join("\n");
   wrapper.innerHTML = `
-    <pre class="banner-text">${text}</pre>
+    <div class="banner-words">
+      <pre class="banner-text">${left}</pre>
+      <pre class="banner-text">${right}</pre>
+    </div>
     <div class="banner-note">${note}</div>
   `;
   output.appendChild(wrapper);
